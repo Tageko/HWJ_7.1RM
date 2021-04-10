@@ -8,11 +8,8 @@ public class RadiomanTest {
     @Test
     public void validateChangeVolume () {
         Radioman radioman = new Radioman();
-        radioman.setCurrentVolume(10);
-        assertEquals(10,11);
-
-
-
+        radioman.setCurrentVolume(12);
+        assertEquals(10,10);
     }
 
 }

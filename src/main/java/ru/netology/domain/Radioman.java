@@ -14,27 +14,50 @@ public class Radioman {
     }
 
     public void setCurrentVolume(int currentVolume) {
-        if (currentVolume < minVolume)
+        if (currentVolume < this.minVolume)
             return;
-        if (currentVolume > maxVolume)
+        if (currentVolume > this.maxVolume)
             return;
         this.currentVolume = currentVolume;
+    }
+
+    public void increaseCurrentVolume() {
+        if (currentVolume == this.maxVolume)
+            return;
+        this.currentVolume ++;
+    }
+
+    public void decreaseCurrentVolume() {
+        if (currentVolume == this.minVolume)
+            return;
+        this.currentVolume --;
     }
 
     public int getCurrentChannel() {
         return currentChannel;
     }
 
-    public int setCurrentChannel(int currentChannel) {
+    public void setCurrentChannel(int currentChannel) {
         if (currentChannel < minChannel)
-            return maxChannel;
-
+            return;
         if (currentChannel > maxChannel)
-            return minChannel;
+            return;
         this.currentChannel = currentChannel;
-        return currentChannel;
     }
 
+    public void nextChannel() {
+        if (currentChannel == this.maxChannel) {
+            currentChannel = minChannel;
+        }
+        this.currentChannel++;
+    }
+
+    public void prevChannel() {
+        if (currentChannel == this.minChannel) {
+            currentChannel = maxChannel;
+        }
+        this.currentChannel--;
+    }
     public int getMinVolume() {
         return minVolume;
     }
